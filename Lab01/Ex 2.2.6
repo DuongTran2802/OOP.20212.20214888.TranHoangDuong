@@ -1,0 +1,98 @@
+import java.util.Scanner;
+
+public class EquationSolver {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter 1 to solve first-degree equation, 2 to solve system of first-degree equations, or 3 to solve second-degree equation: ");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                solveFirstDegreeEquation(scanner);
+                break;
+            case 2:
+                solveSystemOfFirstDegreeEquations(scanner);
+                break;
+            case 3:
+                solveSecondDegreeEquation(scanner);
+                break;
+            default:
+                System.out.println("Invalid choice!");
+        }
+    }
+
+    public static void solveFirstDegreeEquation(Scanner scanner) {
+        System.out.println("Solving first-degree equation (ax + b = 0)");
+        System.out.println("Enter value for a: ");
+        double a = scanner.nextDouble();
+        if (a == 0) {
+            System.out.println("a cannot be 0!");
+            return;
+        }
+        System.out.println("Enter value for b: ");
+        double b = scanner.nextDouble();
+        double x = -b / a;
+        System.out.println("x = " + x);
+    }
+
+    public static void solveSystemOfFirstDegreeEquations(Scanner scanner) {
+        System.out.println("Solving system of first-degree equations (a11x1 + a12x2 = b1, a21x1 + a22x2 = b2)");
+        System.out.println("Enter value for a11: ");
+        double a11 = scanner.nextDouble();
+        System.out.println("Enter value for a12: ");
+        double a12 = scanner.nextDouble();
+        System.out.println("Enter value for b1: ");
+        double b1 = scanner.nextDouble();
+        System.out.println("Enter value for a21: ");
+        double a21 = scanner.nextDouble();
+        System.out.println("Enter value for a22: ");
+        double a22 = scanner.nextDouble();
+        System.out.println("Enter value for b2: ");
+        double b2 = scanner.nextDouble();
+
+        double D = a11 * a22 - a21 * a12;
+        double D1 = b1 * a22 - b2 * a12;
+        double D2 = a11 * b2 - a21 * b1;
+
+        if (D == 0) {
+            if (D1 == 0 && D2 == 0) {
+                System.out.println("The system has infinitely many solutions.");
+            } else {
+                System.out.println("The system has no solution.");
+            }
+        } else {
+            double x1 = D1 / D;
+            double x2 = D2 / D;
+            System.out.println("x1 = " + x1);
+            System.out.println("x2 = " + x2);
+        }
+    }
+
+    public static void solveSecondDegreeEquation(Scanner scanner) {
+        System.out.println("Solving second-degree equation (ax^2 + bx + c = 0)");
+        System.out.println("Enter value for a: ");
+        double a = scanner.nextDouble();
+        if (a == 0) {
+            System.out.println("a cannot be 0!");
+            return;
+        }
+        System.out.println("Enter value for b: ");
+        double b = scanner.nextDouble();
+        System.out.println("Enter value for c: ");
+        double c = scanner.nextDouble();
+
+        double delta = b * b - 4 * a * c;
+
+        if (delta < 0) {
+            System.out.println("The equation has no real roots.");
+        } else if (delta == 0) {
+            double x = -b / (2 * a);
+            System.out.println("The equation has one root: x = " + x);
+        } else {
+            double x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            double x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            System.out.println("The equation has two roots:");
+            System.out.println("x1 = " + x1);
+            System.out.println("x2 = " + x2);
+    }
