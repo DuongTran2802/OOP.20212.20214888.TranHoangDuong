@@ -1,1 +1,7 @@
+2.1: 
+I choose method addDigitalVideoDisc beacause it is easy to understand and use, especially in simple scenarios where only one DVD needs to be added.
+3:
+Java is a pass-by-value programming language. When you pass a parameter to a method, a copy of the value is made and given to the method to work with. This means that any changes made to the parameter inside the method won't affect the original value outside of the method.
 
+6:
+The toString() method in the DigitalVideoDisc class should have a return type of String.
