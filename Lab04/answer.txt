@@ -1,0 +1,8 @@
+10. If the passing object is not an instance of the Media class, it means it doesn't belong to the same class. In that case, when checking for equality, the equals() method should return false because objects of different classes cannot be considered equal.
+
+11. When we run the code, the information specific to each type of media object will be printed out, demonstrating the polymorphic behavior of the toString() method.
+
+12.1 To compare items in the cart using the Comparable interface, it is necessary for the class that represents the items to implement the Comparable interface.
+12.2 To implement the compareTo() method in those classes to reflect the desired ordering, I should compare the relevant attributes or properties of the objects and return a value based on the comparison
+12.3 Yes, it is possible to have two ordering rules for items using the Comparable interface. By implementing the compareTo() method to compare the attributes in the desired order, I can achieve the desired ordering based on multiple criteria.
+12.4 To accommodate the different ordering rule for DVDs, I think I can modify the compareTo() method in the DVD class. Instead of solely comparing the titles, I would include additional comparisons based on the length and cost of the DVDs. By considering these attributes in the desired order (title, decreasing length, and then cost), I may establish the specific ordering rule for DVDs.
